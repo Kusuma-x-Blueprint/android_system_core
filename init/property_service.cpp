@@ -1307,12 +1307,14 @@ static void SetSafetyNetProps() {
     InitPropertySet("ro.system_ext.build.tags", "release-keys");
     InitPropertySet("ro.vendor.build.tags", "release-keys");
 
-    //Spoof type properties
-    InitPropertySet("ro.build.type", "user");
-    InitPropertySet("ro.product.build.type", "user");
-    InitPropertySet("ro.system.build.type", "user");
-    InitPropertySet("ro.system_ext.build.type", "user");
-    InitPropertySet("ro.vendor.build.type", "user");
+    if (SPOOF_SAFETYNET) {
+        //Spoof type properties
+        InitPropertySet("ro.build.type", "user");
+        InitPropertySet("ro.product.build.type", "user");
+        InitPropertySet("ro.system.build.type", "user");
+        InitPropertySet("ro.system_ext.build.type", "user");
+        InitPropertySet("ro.vendor.build.type", "user");
+    }
 }
 
 void PropertyInit() {
