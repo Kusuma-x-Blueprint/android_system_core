@@ -1309,11 +1309,27 @@ static void SetSafetyNetProps() {
         return;
     }
 
-    // Spoof properties
+    // Spoof boot properties
     InitPropertySet("ro.boot.flash.locked", "1");
     InitPropertySet("ro.boot.verifiedbootstate", "green");
     InitPropertySet("ro.boot.veritymode", "enforcing");
     InitPropertySet("ro.boot.vbmeta.device_state", "locked");
+
+    //Spoof tags properties
+    InitPropertySet("ro.build.tags", "release-keys");
+    InitPropertySet("ro.product.build.tags", "release-keys");
+    InitPropertySet("ro.system.build.tags", "release-keys");
+    InitPropertySet("ro.system_ext.build.tags", "release-keys");
+    InitPropertySet("ro.vendor.build.tags", "release-keys");
+    InitPropertySet("ro.vendor_dlkm.build.tags", "release-keys");
+
+    //Spoof type properties
+    InitPropertySet("ro.build.type", "user");
+    InitPropertySet("ro.product.build.type", "user");
+    InitPropertySet("ro.system.build.type", "user");
+    InitPropertySet("ro.system_ext.build.type", "user");
+    InitPropertySet("ro.vendor.build.type", "user");
+    InitPropertySet("ro.vendor_dlkm.build.type", "user");
 }
 
 void PropertyInit() {
